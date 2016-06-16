@@ -345,9 +345,9 @@ void PEdump::ShowEAT()
 	this->ShowBanner(TEXT("Export Table"));
 	this->m_Colorama.Output(FORE_DARK_GREEN, "%s\n", (char*) ((DWORD) this->m_lpImageBase + pExportDir->Name));
 
-	for (i = 0; i < pExportDir->NumberOfFunctions; i++)
+	for (i = 0; i < pExportDir->NumberOfNames; i++)
 	{
-		printf("%d\t%-30s\t0x%08X\n", pFuncOrdinal[i],
+		printf("%d\t%-30s\t0x%08X\n", pFuncOrdinal[i] + pExportDir->Base,
 			(char*) ((DWORD) this->m_lpImageBase + *pFuncName), pFuncAddr[pFuncOrdinal[i]]);
 
 		pFuncName++;
